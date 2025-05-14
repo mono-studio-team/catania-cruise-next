@@ -10,10 +10,12 @@
     "format": "prettier --write ."
   },
   "dependencies": {
+    "@svgr/webpack": "^8.1.0",
     "clsx": "^2.1.1",
     "next": "15.3.2",
     "react": "^19.0.0",
-    "react-dom": "^19.0.0"
+    "react-dom": "^19.0.0",
+    "react-hook-form": "^7.56.3"
   },
   "devDependencies": {
     "@tailwindcss/postcss": "^4",
