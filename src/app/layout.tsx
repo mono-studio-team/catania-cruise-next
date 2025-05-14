@@ -1,11 +1,12 @@
+import { sfPro } from '@/config/fonts'
+import '../styles/globals.css'
+
 export default function DashboardLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
-      <body>
-        {/* Layout UI */}
-        {/* Place children where you want to render a page or nested layout */}
+      <body className={`${sfPro.className}`}>
         <main>{children}</main>
       </body>
     </html>
-  );
+  )
 }
