@@ -11,7 +11,7 @@ type InfoContactsProps = {
 
 export default function InfoContacts({ title, description, socialLinks }: InfoContactsProps) {
   return (
-    <div className="pt-6">
+    <div className="pt-6 px-5 pb-22">
       <div>
         <h2 className="text-xl font-medium">{title}</h2>
         <p className="mt-5 text-sm">{description}</p>
