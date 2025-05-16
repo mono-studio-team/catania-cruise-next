@@ -18,7 +18,7 @@ export default function Button({
 }: ButtonProps) {
   const variants = {
     primary: 'bg-primary-black text-white rounded-full px-4 py-3',
-    secondary: 'bg-gray-600 text-white hover:bg-gray-700 focus:ring-gray-500 px-4 py-2',
+    secondary: 'bg-primary-aqua text-white px-4 py-2',
     link: 'text-black underline underline-offset-2 font-semibold decoration-2',
   }
 
@@ -29,7 +29,7 @@ export default function Button({
       type={type}
       onClick={onClick}
       className={clsx(
-        'inline-flex items-center w-full justify-center font-medium cursor-pointer',
+        'inline-flex items-center w-full justify-center font-medium cursor-pointer', //TODO - change width
         variants[variant],
         disabled && disabledStyle,
       )}
