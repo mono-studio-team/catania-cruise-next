@@ -19,3 +19,15 @@
     --foreground: #ededed;
   }
 }
+
+.PhoneInputInput {
+  border-left: 1px solid #d1d5db;
+  margin-left: 6px;
+  padding-left: 8px;
+}
+.PhoneInputInput:focus {
+  outline: none !important;
+}
+.PhoneInputCountryIcon {
+  margin-right: 8px;
+}
