@@ -1,24 +1,31 @@
-export type Route = {
-  id: string
-  type: string
-  name: {
-    type: string
-    value: string
-  }
-  hasPoints: {
-    type: string
-    object: string[]
-  }
-}
-
-type Relationship = {
-  type: 'Relationship'
-  object: string
-}
-
-type Property<T = any> = {
+export type Property<T = any> = {
   type: 'Property'
   value: T
+}
+
+export type Relationship<T = any> = {
+  type: 'Relationship'
+  object: T
+}
+
+export type Route = {
+  id: string
+  type: 'Route'
+
+  nameEN: Property<string>
+  nameESP: Property<string>
+  nameIT: Property<string>
+
+  descriptionEN: Property<string>
+  descriptionESP: Property<string>
+  descriptionIT: Property<string>
+
+  durationOnBike: Property<string>
+  durationOnFoot: Property<string>
+
+  totalDistance: Property<string>
+
+  hasPoints: Relationship<string[]>
 }
 
 type GeoProperty = {
