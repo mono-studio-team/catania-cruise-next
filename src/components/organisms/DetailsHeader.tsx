@@ -45,7 +45,7 @@ export default function DetailsHeader({ imageUrl, title, subtitle, icons }: Deta
           Questo percorso inizia dal Porto di Catania, attraversa il centro storico e arriva fino alla spiaggia La
           Playa. Ideale per chi vuole combinare cultura e relax sulla spiaggia.
         </p>
-        {/* MAP image */}
+         {/*MAP image */}
         <div className="rounded-lg mt-4">
           <Image src={Map} alt="Route image" className="object-cover w-full h-full" />
         </div>

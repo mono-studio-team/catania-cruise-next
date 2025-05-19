@@ -5,7 +5,7 @@ import { Route, RoutePoint } from '@/types/api'
 import { notFound } from 'next/navigation'
 
 type RouteDetailsProps = {
-  params: { id: string }
+  params: Promise<{ id: string }>
 }
 
 export default async function RouteDetailsPage({ params }: RouteDetailsProps) {

@@ -4,27 +4,27 @@ const sfPro = localFont({
   variable: '--sfpro',
   src: [
     {
-      path: '../assets/fonts/SF-Pro-Text-Regular.woff2', // Regular
+      path: '../assets/fonts/sf-pro-text-regular.woff2', // Regular
       style: 'normal',
       weight: '400',
     },
     {
-      path: '../assets/fonts/SF-Pro-Text-Light.woff2', // Light
+      path: '../assets/fonts/sf-pro-text-light.woff2', // Light
       style: 'normal',
       weight: '300',
     },
     {
-      path: '../assets/fonts/SF-Pro-Text-Medium.woff2', // Medium
+      path: '../assets/fonts/sf-pro-text-medium.woff2', // Medium
       style: 'normal',
       weight: '500',
     },
     {
-      path: '../assets/fonts/SF-Pro-Text-Semibold.woff2', // Semibold
+      path: '../assets/fonts/sf-pro-text-semibold.woff2', // Semibold
       style: 'normal',
       weight: '600',
     },
     {
-      path: '../assets/fonts/SF-Pro-Text-Bold.woff2', // Bold
+      path: '../assets/fonts/sf-pro-text-bold.woff2', // Bold
       style: 'normal',
       weight: '700',
     },
