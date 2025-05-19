@@ -24,7 +24,7 @@ export default function Home() {
   }, [])
 
   return (
-    <div className="px-5 pt-15 pb-22">
+    <div className="px-5 pt-3 pb-22">
       <HomeHeader />
       <RoutesSection title="Tutti i percorsi" routes={routes} />
     </div>

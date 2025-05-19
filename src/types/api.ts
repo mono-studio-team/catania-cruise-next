@@ -20,6 +20,8 @@ export type Route = {
   descriptionESP: Property<string>
   descriptionIT: Property<string>
 
+  image: Property<string>
+
   durationOnBike: Property<string>
   durationOnFoot: Property<string>
 
@@ -46,15 +48,21 @@ type AddressValue = {
 export type RoutePoint = {
   id: string
   type: string
-  isLocatedAt: Relationship
+
+  isLocatedAt: Relationship<string>
+
   housenumber: Property<string>
   address: Property<AddressValue>
+  image: Property<string>
   name: Property<string>
+
   audioEN: Property<string>
   audioESP: Property<string>
   audioIT: Property<string>
+
   descriptionEN: Property<string>
   descriptionESP: Property<string>
   descriptionIT: Property<string>
+
   location: GeoProperty
 }
