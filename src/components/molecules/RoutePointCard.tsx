@@ -1,20 +1,23 @@
+'use client'
+
 import Image from 'next/image'
-import Background from '@/assets/example2.png'
+import defaultImg from '@/assets/example2.png'
+import { RoutePoint } from '@/types/api'
 
 type RoutePointCardProps = {
-  title: string
-  index: number
-  isLast?: boolean
+  point: RoutePoint
 }
 
-export default function RoutePointCard({ title, index, isLast }: RoutePointCardProps) {
+export default function RoutePointCard({ point }: RoutePointCardProps) {
+  //TODO - what if img is missing ?
+  const img = point.image?.value ?? defaultImg
+
   return (
     <div className="flex flex-col gap-3.5">
-      <h3 className="text-lg font-medium leading-5.5 text-primary-black">{title}</h3>
-      <div className="rounded-lg overflow-hidden h-[128px] w-full">
-        <Image src={Background} alt="Route image" className="object-cover w-full h-full" />
+      <h3 className="text-lg font-medium leading-5.5 text-primary-black">{point.name.value}</h3>
+      <div className="relative rounded-lg overflow-hidden h-[128px] w-full">
+        <Image src={img} alt="Route-point image" sizes="100vw" className="object-cover" fill />
       </div>
-      {/* Other content */}
     </div>
   )
 }

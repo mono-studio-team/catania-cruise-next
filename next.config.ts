@@ -4,6 +4,11 @@ import createNextIntlPlugin from 'next-intl/plugin'
 const nextConfig: NextConfig = {
   output: 'standalone',
   reactStrictMode: true,
+  images: {
+    domains: ['datahighway-media.s3.eu-west-1.amazonaws.com'],
+    loader: 'custom',
+    loaderFile: './src/lib/imageLoader.ts',
+  },
 
   turbopack: {
     rules: {
@@ -15,7 +20,7 @@ const nextConfig: NextConfig = {
   },
 
   webpack: (config) => {
-    const fileLoaderRule = config.module.rules.find((rule: unknown) => (rule as any).test?.test?.('.svg'),)
+    const fileLoaderRule = config.module.rules.find((rule: unknown) => (rule as any).test?.test?.('.svg'))
 
     config.module.rules.push(
       // Reapply the existing rule, but only for svg imports ending in ?url
@@ -37,7 +42,7 @@ const nextConfig: NextConfig = {
     fileLoaderRule.exclude = /\.svg$/i
 
     return config
-  }
+  },
 }
 
 const withNextIntl = createNextIntlPlugin()

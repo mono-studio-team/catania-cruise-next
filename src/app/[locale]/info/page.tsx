@@ -3,7 +3,7 @@ import InfoContacts from '@/components/molecules/InfoContacts'
 
 export default function Info() {
   return (
-    <div>
+    <div className="max-w-md mx-auto">
       <InfoHeader
         title="Titolo"
         description="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."

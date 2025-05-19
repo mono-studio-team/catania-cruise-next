@@ -1,4 +1,8 @@
-<svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+<svg  
+viewBox="0 0 41 30" 
+xmlns="http://www.w3.org/2000/svg" 
+preserveAspectRatio="xMidYMid meet"
+fill="none">
 <path d="M12.6666 6H27.3333V34H12.6666V6Z" fill="#FFEEA3"/>
 <path d="M26.6667 6.66666V33.3333H13.3333V6.66666H26.6667ZM28 5.33333H12V34.6667H28V5.33333Z" fill="#F5C276"/>
 <path d="M0.666626 6H12.6666V34H0.666626V6Z" fill="#4B6477"/>

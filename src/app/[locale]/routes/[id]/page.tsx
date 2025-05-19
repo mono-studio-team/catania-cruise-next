@@ -1,4 +1,5 @@
 import { getEntityById } from '@/api/entities'
+import Button from '@/components/atoms/Button'
 import DetailsHeader from '@/components/organisms/DetailsHeader'
 import RoutePointsSection from '@/components/organisms/RoutePointsSection'
 import { Route, RoutePoint } from '@/types/api'
@@ -10,7 +11,7 @@ type RouteDetailsProps = {
 
 export default async function RouteDetailsPage({ params }: RouteDetailsProps) {
   const { id } = await params
-  const data = await getEntityById(id)
+  const data = await getEntityById(decodeURIComponent(id))
 
   if (!data || data.type !== 'Route') {
     notFound()
@@ -25,9 +26,12 @@ export default async function RouteDetailsPage({ params }: RouteDetailsProps) {
   )
 
   return (
-    <div>
-      <DetailsHeader title={route.nameIT.value} />
+    <div className="max-w-md mx-auto">
+      <DetailsHeader route={route} />
       <RoutePointsSection points={routePoints} />
+      <div className="fixed bottom-0 w-full">
+        <Button variant="secondary">Avvia percorso</Button>
+      </div>
     </div>
   )
 }

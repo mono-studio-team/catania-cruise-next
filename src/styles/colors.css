@@ -4,6 +4,8 @@
   --color-primary-aqua: #10bfb1;
   --color-primary-grey: #898989;
   --color-primary-blue: #002d72;
-
   --color-light-blue: #002b6d1a;
+
+  --shadow-soft: rgba(52, 27, 0, 0.16) 0px 2px 16px 0px;
+  --shadow-strong: rgba(52, 27, 0, 0.1) 0px 2px 16px 0px;
 }

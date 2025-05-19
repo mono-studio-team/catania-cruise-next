@@ -1,7 +1,7 @@
 'use client'
 
-import Info from '@/assets/icons/info.svg'
-import Lang from '@/assets/icons/flag-ita.svg'
+import InfoIcon from '@/assets/icons/info.svg'
+import FlagIT from '@/assets/icons/flag-it.svg'
 import { useDrawer } from '@/contexts/DrawerContext'
 import Link from 'next/link'
 
@@ -12,9 +12,9 @@ export default function HomeHeader() {
     <header className="flex justify-between py-2 items-center">
       <h1 className="font-semibold text-2xl">Catania Cruise</h1>
       <div className="flex gap-4 items-center">
-        <Lang onClick={toggleDrawer} />
+        <FlagIT onClick={toggleDrawer} width={24} height={24} />
         <Link href="/info">
-          <Info />
+          <InfoIcon />
         </Link>
       </div>
     </header>
