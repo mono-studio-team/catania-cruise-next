@@ -2,12 +2,7 @@ import Image from 'next/image'
 import Background from '@/assets/login-bg.jpg'
 import Logo from '@/assets/logo.svg'
 
-type InfoHeaderProps = {
-  title: string
-  description: string
-}
-
-export default function InfoHeader({ title, description }: InfoHeaderProps) {
+export default function InfoHeader() {
   return (
     <header>
       <div className="relative">
@@ -16,10 +11,12 @@ export default function InfoHeader({ title, description }: InfoHeaderProps) {
         </div>
         <Logo className="absolute -bottom-3.5 m-auto left-0 right-0" />
       </div>
+      {/* 
       <div className="px-5 pt-10">
         <h1 className="text-xl font-medium">{title}</h1>
         <p className="mt-5 text-sm">{description}</p>
       </div>
+      */}
     </header>
   )
 }

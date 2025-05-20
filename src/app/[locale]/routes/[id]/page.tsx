@@ -29,8 +29,10 @@ export default async function RouteDetailsPage({ params }: RouteDetailsProps) {
     <div className="max-w-md mx-auto">
       <DetailsHeader route={route} />
       <RoutePointsSection points={routePoints} />
-      <div className="fixed bottom-0 w-full">
-        <Button variant="secondary">Avvia percorso</Button>
+      <div className="fixed bottom-0 w-full max-w-md">
+        <Button variant="secondary" size="large">
+          Avvia percorso
+        </Button>
       </div>
     </div>
   )

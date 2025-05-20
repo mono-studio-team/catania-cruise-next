@@ -2,7 +2,7 @@ import axios from 'axios'
 
 const BASE_URL = process.env.NEXT_PUBLIC_DH_ENDPOINT
 const X_API_KEY = process.env.NEXT_PUBLIC_X_API_KEY
-console.log(BASE_URL, X_API_KEY)
+
 export const api = axios.create({
   baseURL: BASE_URL,
   timeout: 10000,

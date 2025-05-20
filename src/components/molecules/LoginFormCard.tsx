@@ -6,6 +6,7 @@ import PhoneInput from 'react-phone-number-input'
 import 'react-phone-number-input/style.css'
 import Button from '../atoms/Button'
 import clsx from 'clsx'
+import { useTranslations } from 'next-intl'
 
 type FormData = {
   phone?: string
@@ -13,6 +14,7 @@ type FormData = {
 }
 
 export default function LoginFormCard() {
+  const t = useTranslations('loginPage')
   const [step, setStep] = useState<'phone' | 'otp'>('phone')
   const [isOtpSubmitted, setIsOtpSubmitted] = useState(false)
 
@@ -42,8 +44,8 @@ export default function LoginFormCard() {
   return (
     <div className="rounded-xl text-center bg-white py-8 px-5 w-full">
       <form onSubmit={handleSubmit(onSubmit)} className="max-w-sm flex flex-col">
-        <h1 className="text-primary-red text-[2.5rem] font-medium">Benvenuto</h1>
-        <p className="text-xl mt-1">{step === 'phone' ? 'Inserisci il tuo numero' : 'Inserisici il codice'}</p>
+        <h1 className="text-primary-red text-[2.5rem] font-medium">{t('cardTitle')}</h1>
+        <p className="text-xl mt-1">{step === 'phone' ? `${t('labelTel')}` : `${t('labelOtp')}`}</p>
         <div className="mb-10 mt-4 min-h-[190px] text-left">
           {step === 'phone' ? (
             <div>
@@ -83,14 +85,14 @@ export default function LoginFormCard() {
                   otpValue ? 'border-primary-grey' : 'border-gray-300',
                 )}
               />
-              {isOtpSubmitted && errors.otp && <p className="text-red-500 text-sm mt-1">Il codice inserito è errato</p>}
+              {isOtpSubmitted && errors.otp && <p className="text-red-500 text-sm mt-1">{t('errOtp')}</p>}
 
               <div className="text-sm mt-2">
-                <p>Inserisci il codice che abbiamo inviato al numero +39333 33221123</p>
+                <p>{t('sentOtpMessage')}</p>
                 <p className="inline-flex mt-5">
-                  <span className="mr-1"> Se non lo hai ricevuto, </span>
+                  <span className="mr-1"> {t('notRetrievedMessage')} </span>
                   <span>
-                    <Button variant="link"> ricevine uno nuovo</Button>
+                    <Button variant="link"> {t('btnSendNewOtp')}</Button>
                   </span>
                 </p>
               </div>
@@ -98,7 +100,7 @@ export default function LoginFormCard() {
           )}
         </div>
         <Button type="submit" disabled={!isValid}>
-          {step === 'phone' ? 'Invia' : 'Verifica'}
+          {step === 'phone' ? `${t('btnTel')}` : `${t('btnOtp')}`}
         </Button>
       </form>
     </div>

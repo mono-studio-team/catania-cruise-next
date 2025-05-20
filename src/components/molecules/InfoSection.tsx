@@ -1,6 +1,6 @@
 import Link from 'next/link'
 
-type InfoContactsProps = {
+type InfoSectionProps = {
   title: string
   description: string
   socialLinks: {
@@ -9,11 +9,11 @@ type InfoContactsProps = {
   }[]
 }
 
-export default function InfoContacts({ title, description, socialLinks }: InfoContactsProps) {
+export default function InfoSection({ title, description, socialLinks }: InfoSectionProps) {
   return (
-    <div className="pt-6 px-5 pb-22">
+    <div className="pt-10 px-5 pb-22">
       <div>
-        <h2 className="text-xl font-medium">{title}</h2>
+        <h1 className="text-xl font-medium">{title}</h1>
         <p className="mt-5 text-sm">{description}</p>
       </div>
       <div className="flex flex-col gap-1.5 mt-4 font-medium">

@@ -1,1 +1,31 @@
-{}
+{
+    "loginPage": {
+      "cardTitle": "Bienvenido",
+      "labelTel": "Introduce tu número de teléfono",
+      "labelOtp": "Introduce el código",
+      "btnTel": "Enviar",
+      "btnOtp": "Verificar",
+      "errOtp": "El código que ingresaste es incorrecto",
+      "sentOtpMessage": "Introduce el código que enviamos al número +39333 33221123",
+      "notRetrievedMessage": "Si no lo has recibido,",
+      "btnSendNewOtp": "solicita uno nuevo"
+    },
+    "homePage": {
+      "headerTitle": "Catania Cruise",
+      "sectionTitle": "Todas las rutas"
+    },
+    "infoPage": {
+        "sectionTitle": "Catania Cruise",
+        "sectionContent": "Catania Cruiser es una aplicación web diseñada para los turistas que llegan al terminal de cruceros de Catania. La aplicación móvil ofrece funciones de recorrido a pie, incluyendo alquiler de bicicletas con rutas predefinidas."
+    },
+    "redirectPage": {
+        "sectionTitle": "¡Tu acceso ha expirado!",
+        "sectionContent": "Gracias por usar Catania Cruise"
+    },
+    "langSwitcher": {
+        "italian": "Italiano",
+        "english": "Inglés",
+        "spanish": "Español"
+      }
+  }
+  

@@ -1,20 +1,20 @@
 import InfoHeader from '@/components/organisms/InfoHeader'
-import InfoContacts from '@/components/molecules/InfoContacts'
+import InfoSection from '@/components/molecules/InfoSection'
+import { useTranslations } from 'next-intl'
 
 export default function Info() {
+  const t = useTranslations('infoPage')
+
   return (
     <div className="max-w-md mx-auto">
-      <InfoHeader
-        title="Titolo"
-        description="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
-      />
-      <InfoContacts
-        title="Contatti"
-        description="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+      <InfoHeader />
+      <InfoSection
+        title={t('sectionTitle')}
+        description={t('sectionContent')}
         socialLinks={[
-          { label: 'Facebook', href: 'https://www.facebook.com/your-page' },
-          { label: 'Instagram', href: 'https://www.instagram.com/your-profile' },
-          { label: 'LinkedIn', href: 'https://www.linkedin.com/in/your-profile' },
+          { label: 'Facebook', href: 'https://www.facebook.com/CataniaCruisePort' },
+          { label: 'Instagram', href: 'https://www.instagram.com/cataniacruiseport' },
+          { label: 'LinkedIn', href: 'https://www.linkedin.com/company/cataniacruiseport' },
         ]}
       />
     </div>

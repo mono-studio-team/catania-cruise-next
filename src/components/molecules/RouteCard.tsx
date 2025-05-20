@@ -13,8 +13,6 @@ type RouteCardProps = {
   route: Route
 }
 
-//TODO - confirm duration types
-
 export default function RouteCard({ route }: RouteCardProps) {
   return (
     <Link href={`/routes/${encodeURIComponent(route.id)}`} passHref>

@@ -4,16 +4,18 @@ import { getAllRoutes } from '@/api/entities'
 import HomeHeader from '@/components/organisms/HomeHeader'
 import RoutesSection from '@/components/organisms/RoutesSection'
 import { Route } from '@/types/api'
+import { useTranslations } from 'next-intl'
 import { useEffect, useState } from 'react'
 
 export default function Home() {
+  const t = useTranslations('homePage')
   const [routes, setRoutes] = useState<Route[]>([])
 
   useEffect(() => {
     const fetchRoutes = async () => {
       try {
         const data = await getAllRoutes()
-        console.log('Fetched routes:', data)
+        // console.log('Fetched routes:', data)
         setRoutes(data)
       } catch (err) {
         console.error('Error fetching routes:', err)
@@ -25,8 +27,8 @@ export default function Home() {
 
   return (
     <div className="px-5 pt-3 pb-22 max-w-md mx-auto">
-      <HomeHeader />
-      <RoutesSection title="Tutti i percorsi" routes={routes} />
+      <HomeHeader title={t('headerTitle')} />
+      <RoutesSection title={t('sectionTitle')} routes={routes} />
     </div>
   )
 }
