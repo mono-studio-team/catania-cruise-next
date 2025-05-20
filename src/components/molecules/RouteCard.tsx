@@ -2,10 +2,6 @@
 
 import Image from 'next/image'
 import Link from 'next/link'
-import Background from '@/assets/example.png'
-import Clock from '@/assets/icons/clock.svg'
-import Flag from '@/assets/icons/km1.svg'
-import Bicicle from '@/assets/icons/bicicle.svg'
 import { Route } from '@/types/api'
 import RouteInfoBar from '../atoms/RouteInfoBar'
 
