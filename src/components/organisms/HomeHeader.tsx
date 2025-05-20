@@ -1,10 +1,10 @@
 'use client'
 
 import InfoIcon from '@/assets/icons/info.svg'
-import FlagIT from '@/assets/icons/flag-it.svg'
 import { useDrawer } from '@/contexts/DrawerContext'
 import Link from 'next/link'
-import { useTranslations } from 'next-intl'
+import { useLocale, useTranslations } from 'next-intl'
+import { LANGUAGE_FLAGS, LanguageCode } from '@/config/languages'
 
 type HomeHeaderProps = {
   title: string
@@ -13,12 +13,14 @@ type HomeHeaderProps = {
 export default function HomeHeader({ title }: HomeHeaderProps) {
   const { toggleDrawer } = useDrawer()
   const t = useTranslations('homePage')
+  const locale = useLocale() as LanguageCode
+  const FlagIcon = LANGUAGE_FLAGS[locale]
 
   return (
     <header className="flex justify-between py-2 items-center">
       <h1 className="font-semibold text-2xl">{title}</h1>
       <div className="flex gap-4 items-center">
-        <FlagIT onClick={toggleDrawer} width={24} height={24} />
+        <FlagIcon onClick={toggleDrawer} width={24} height={24} />
         <Link href="/info">
           <InfoIcon />
         </Link>
