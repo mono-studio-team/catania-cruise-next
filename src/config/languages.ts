@@ -1,6 +1,6 @@
 import FlagIT from '@/assets/icons/flag-it.svg'
 import FlagEN from '@/assets/icons/flag-en.svg'
-import FlagESP from '@/assets/icons/flag-es.svg'
+import FlagESP from '@/assets/icons/flag-esp.svg'
 
 export enum LanguageCode {
   IT = 'it',
