@@ -14,6 +14,9 @@
       "headerTitle": "Catania Cruise",
       "sectionTitle": "Todas las rutas"
     },
+    "detailsPage": {
+      "btn": "Iniciar ruta"
+    },
     "infoPage": {
         "sectionTitle": "Catania Cruise",
         "sectionContent": "Catania Cruiser es una aplicación web diseñada para los turistas que llegan al terminal de cruceros de Catania. La aplicación móvil ofrece funciones de recorrido a pie, incluyendo alquiler de bicicletas con rutas predefinidas."
@@ -23,9 +26,11 @@
         "sectionContent": "Gracias por usar Catania Cruise"
     },
     "langSwitcher": {
-        "italian": "Italiano",
-        "english": "Inglés",
-        "spanish": "Español"
+        "title": "Selecciona tu idioma",
+        "it": "Italiano",
+        "en": "Inglés",
+        "esp": "Español",
+        "de": "Alemán"
       }
   }
   

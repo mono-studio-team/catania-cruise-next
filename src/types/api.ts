@@ -15,10 +15,12 @@ export type Route = {
   nameEN: Property<string>
   nameESP: Property<string>
   nameIT: Property<string>
+  nameDE: Property<string>
 
   descriptionEN: Property<string>
   descriptionESP: Property<string>
   descriptionIT: Property<string>
+  descriptionDE: Property<string>
 
   image: Property<string>
 
@@ -59,10 +61,12 @@ export type RoutePoint = {
   audioEN: Property<string>
   audioESP: Property<string>
   audioIT: Property<string>
+  audioDE: Property<string>
 
   descriptionEN: Property<string>
   descriptionESP: Property<string>
   descriptionIT: Property<string>
+  descriptionDE: Property<string>
 
   location: GeoProperty
 }
