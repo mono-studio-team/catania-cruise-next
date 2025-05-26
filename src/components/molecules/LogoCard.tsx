@@ -9,7 +9,6 @@ export default function LogoCard({}: LogoCardProps) {
 
       <h1 className="text-[26px] font-medium text-primary-red">Il tuo accesso è scaduto!</h1>
       <p className="text-sm">Ti ringraziamo per aver utilizzato Catania Cruise</p>
-      {/* Other content */}
     </div>
   )
 }

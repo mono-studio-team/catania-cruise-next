@@ -8,8 +8,6 @@ type RoutePointCardProps = {
 }
 
 export default function RoutePointCard({ point }: RoutePointCardProps) {
-  //TODO - what if img is missing ?
-
   return (
     <div className="flex flex-col gap-3.5">
       <h3 className="text-lg font-medium leading-5.5 text-primary-black">{point.name.value}</h3>
