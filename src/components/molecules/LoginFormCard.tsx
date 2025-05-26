@@ -7,16 +7,24 @@ import 'react-phone-number-input/style.css'
 import Button from '../atoms/Button'
 import clsx from 'clsx'
 import { useTranslations } from 'next-intl'
+import { useRouter } from 'next/navigation'
+import { useAuth } from '@/contexts/AuthContext'
+import { postVerifyOtp } from '@/api/auth'
 
 type FormData = {
-  phone?: string
-  otp?: string
+  phoneNumber?: string
+  code?: string
 }
 
 export default function LoginFormCard() {
   const t = useTranslations('loginPage')
+  const router = useRouter()
+
   const [step, setStep] = useState<'phone' | 'otp'>('phone')
   const [isOtpSubmitted, setIsOtpSubmitted] = useState(false)
+  const [phoneNumber, setPhoneNumber] = useState<string>()
+  const [verificationError, setVerificationError] = useState(false)
+  // const { setToken } = useAuth()
 
   const {
     handleSubmit,
@@ -27,17 +35,32 @@ export default function LoginFormCard() {
     formState: { errors, isValid },
   } = useForm<FormData>()
 
-  const phoneValue = watch('phone')
-  const otpValue = watch('otp')
+  const phoneValue = watch('phoneNumber')
+  const otpValue = watch('code')
 
-  const onSubmit = (data: FormData) => {
+  const onSubmit = async (data: FormData) => {
     if (step === 'phone') {
-      console.log('Sending OTP to:', data.phone)
+      setPhoneNumber(data.phoneNumber)
       setStep('otp')
-      reset() // reset form before moving to OTP
     } else {
-      console.log('Verifying OTP:', data.otp)
       setIsOtpSubmitted(true)
+      setVerificationError(false)
+
+      console.log('FORM DATA', data)
+      if (data.phoneNumber && data.code)
+        try {
+          /*  const response = await postVerifyOtp(data.code!, data.phoneNumber!)
+          console.log('RES', response)
+          const token = response.token
+          if (!token) throw new Error('Invalid token')
+
+          console.log('TOKEN', token)
+          setToken(token)*/
+          router.push('/')
+          reset()
+        } catch (err) {
+          setVerificationError(true)
+        }
     }
   }
 
@@ -45,17 +68,14 @@ export default function LoginFormCard() {
     <div className="rounded-xl text-center bg-white py-8 px-5 w-full">
       <form onSubmit={handleSubmit(onSubmit)} className="max-w-sm flex flex-col">
         <h1 className="text-primary-red text-[2.5rem] font-medium">{t('cardTitle')}</h1>
-        <p className="text-xl mt-1">{step === 'phone' ? `${t('labelTel')}` : `${t('labelOtp')}`}</p>
-        <div className="mb-10 mt-4 min-h-[190px] text-left">
+        <p className="text-xl mt-1">{step === 'phone' ? t('labelTel') : t('labelOtp')}</p>
+
+        <div className="mb-10 mt-4 min-h-[140px] text-left">
           {step === 'phone' ? (
             <div>
               <Controller
-                name="phone"
+                name="phoneNumber"
                 control={control}
-                rules={{
-                  required: 'Phone number is required',
-                  validate: (value) => value?.startsWith('+') || 'Enter a valid phone number',
-                }}
                 render={({ field }) => (
                   <PhoneInput
                     {...field}
@@ -69,38 +89,29 @@ export default function LoginFormCard() {
                   />
                 )}
               />
-              {errors.phone && <p className="text-red-500 text-sm mt-1">{errors.phone.message}</p>}
             </div>
           ) : (
             <div>
               <input
                 type="text"
-                {...register('otp', {
+                {...register('code', {
                   required: 'OTP is required',
                   minLength: { value: 6, message: 'OTP must be 6 digits' },
                 })}
                 placeholder="Codice"
                 className={clsx(
-                  'block w-full rounded-xl px-3 py-3 focus:outline-none border',
-                  otpValue ? 'border-primary-grey' : 'border-gray-300',
+                  'block w-full rounded-xl px-3 py-3 focus:outline-none border border-gray-300',
+                  otpValue && 'border-primary-grey',
+                  verificationError && 'border-primary-red',
                 )}
               />
-              {isOtpSubmitted && errors.otp && <p className="text-red-500 text-sm mt-1">{t('errOtp')}</p>}
-
-              <div className="text-sm mt-2">
-                <p>{t('sentOtpMessage')}</p>
-                <p className="inline-flex mt-5">
-                  <span className="mr-1"> {t('notRetrievedMessage')} </span>
-                  <span>
-                    <Button variant="link"> {t('btnSendNewOtp')}</Button>
-                  </span>
-                </p>
-              </div>
+              {isOtpSubmitted && verificationError && <p className="text-primary-red text-sm mt-4">{t('errOtp')}</p>}
             </div>
           )}
         </div>
+
         <Button type="submit" disabled={!isValid}>
-          {step === 'phone' ? `${t('btnTel')}` : `${t('btnOtp')}`}
+          {step === 'phone' ? t('btnTel') : t('btnOtp')}
         </Button>
       </form>
     </div>
