@@ -21,8 +21,8 @@ export default function Button({
   disabled = false,
 }: ButtonProps) {
   const variants = {
-    primary: 'bg-primary-black text-white rounded-full enabled:hover:bg-primary-black/90',
-    secondary: 'bg-primary-aqua text-white text-lg rounded-t-xl',
+    primary: 'bg-primary-black text-white rounded-full enabled:hover:bg-primary-black-light',
+    secondary: 'bg-primary-aqua text-white text-lg rounded-t-xl enabled:hover:bg-primary-aqua-dark',
     link: 'text-black underline underline-offset-2 font-semibold decoration-2',
   }
 
@@ -32,7 +32,7 @@ export default function Button({
     large: 'px-4 py-4.5',
   }
 
-  const disabledStyle = 'opacity-50 cursor-not-allowed '
+  const disabledStyle = 'opacity-50 cursor-not-allowed'
 
   return (
     <button
