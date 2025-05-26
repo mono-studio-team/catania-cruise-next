@@ -1,3 +1,5 @@
+'use client'
+
 import Image from 'next/image'
 import Background from '@/assets/login-bg.jpg'
 import LoginSection from '@/components/organisms/LoginSection'

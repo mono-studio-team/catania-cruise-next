@@ -21,7 +21,7 @@ export default function Button({
   disabled = false,
 }: ButtonProps) {
   const variants = {
-    primary: 'bg-primary-black text-white rounded-full',
+    primary: 'bg-primary-black text-white rounded-full enabled:hover:bg-primary-black/90',
     secondary: 'bg-primary-aqua text-white text-lg rounded-t-xl',
     link: 'text-black underline underline-offset-2 font-semibold decoration-2',
   }
@@ -32,16 +32,16 @@ export default function Button({
     large: 'px-4 py-4.5',
   }
 
-  const disabledStyle = 'opacity-50 cursor-not-allowed'
+  const disabledStyle = 'opacity-50 cursor-not-allowed '
 
   return (
     <button
       type={type}
       onClick={onClick}
       className={clsx(
-        'inline-flex items-center w-full justify-center font-medium cursor-pointer',
+        'inline-flex items-center w-full justify-center enabled:cursor-pointer font-medium transition-colors duration-200 ease-in-out',
         variants[variant],
-        sizes[size],
+        variant !== 'link' && sizes[size],
         className,
         disabled && disabledStyle,
       )}

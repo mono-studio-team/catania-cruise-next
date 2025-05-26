@@ -10,8 +10,8 @@ export default function RoutePointsSection({ points = [] }: RoutePointsSectionPr
   const steps = points.map((point) => <RoutePointCard key={point.id} point={point} />)
 
   return (
-    <div className="mt-10 px-5 pb-22">
+    <section className="mt-10 px-5 pb-22">
       <Stepper steps={steps} />
-    </div>
+    </section>
   )
 }

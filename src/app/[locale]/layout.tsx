@@ -1,5 +1,5 @@
-import { sfPro } from '@/config/fonts'
 import '@/styles/globals.css'
+import { sfPro } from '@/config/fonts'
 import { DrawerProvider } from '@/contexts/DrawerContext'
 import LangDrawer from '@/components/molecules/LangDrawer'
 import { hasLocale, NextIntlClientProvider } from 'next-intl'
@@ -8,6 +8,7 @@ import { routing } from '@/i18n/routing'
 import { notFound } from 'next/navigation'
 import { readFile } from 'fs/promises'
 import { join } from 'path'
+import { AuthProvider } from '@/contexts/AuthContext'
 
 type RootLayoutProps = {
   children: ReactNode
@@ -21,7 +22,6 @@ export default async function RootLayout({ children, params }: RootLayoutProps) 
   if (!hasLocale(routing.locales, locale)) {
     notFound()
   }
-
   const messages = JSON.parse(await readFile(join(process.cwd(), 'src/messages', `${locale}.json`), 'utf8'))
 
   return (

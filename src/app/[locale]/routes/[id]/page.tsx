@@ -3,6 +3,7 @@ import Button from '@/components/atoms/Button'
 import DetailsHeader from '@/components/organisms/DetailsHeader'
 import RoutePointsSection from '@/components/organisms/RoutePointsSection'
 import { Route, RoutePoint } from '@/types/api'
+import { getTranslations } from 'next-intl/server'
 import { notFound } from 'next/navigation'
 
 type RouteDetailsProps = {
@@ -12,6 +13,7 @@ type RouteDetailsProps = {
 export default async function RouteDetailsPage({ params }: RouteDetailsProps) {
   const { id } = await params
   const data = await getEntityById(decodeURIComponent(id))
+  const t = await getTranslations('detailsPage')
 
   if (!data || data.type !== 'Route') {
     notFound()
@@ -29,9 +31,9 @@ export default async function RouteDetailsPage({ params }: RouteDetailsProps) {
     <div className="max-w-md mx-auto">
       <DetailsHeader route={route} />
       <RoutePointsSection points={routePoints} />
-      <div className="fixed bottom-0 w-full max-w-md">
+      <div className="fixed bottom-0 z-50 w-full max-w-md">
         <Button variant="secondary" size="large">
-          Avvia percorso
+          {t('btn')}
         </Button>
       </div>
     </div>

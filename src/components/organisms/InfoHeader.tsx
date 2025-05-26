@@ -1,15 +1,13 @@
-import Image from 'next/image'
 import Background from '@/assets/login-bg.jpg'
 import Logo from '@/assets/logo.svg'
+import ImageWrapper from '../molecules/ImageWrapper'
 
 export default function InfoHeader() {
   return (
     <header>
       <div className="relative">
-        <div className="rounded-b-lg overflow-hidden h-[317px]">
-          <Image src={Background} alt="Header image" className="object-cover w-full h-full" />
-        </div>
-        <Logo className="absolute -bottom-3.5 m-auto left-0 right-0" />
+        <ImageWrapper src={Background} alt="point image" className="rounded-b-xl h-[317px] w-full" />
+        <Logo className="absolute -bottom-3.5 z-30 m-auto left-0 right-0" />
       </div>
       {/* 
       <div className="px-5 pt-10">

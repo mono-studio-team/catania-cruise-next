@@ -6,6 +6,7 @@ import { Route } from '@/types/api'
 import { getLocalizedProperty } from '@/lib/getLocalizedProperty'
 import { useLocale } from 'next-intl'
 import RouteInfoBar from '../atoms/RouteInfoBar'
+import ImageWrapper from '../molecules/ImageWrapper'
 
 type DetailsHeaderProps = {
   route: Route
@@ -16,9 +17,8 @@ export default function DetailsHeader({ route }: DetailsHeaderProps) {
 
   return (
     <div className="relative">
-      <div className="relative rounded-b-lg overflow-hidden h-[317px]">
-        <Image src={route.image.value} alt="Route image" sizes="100vw" className="object-cover" fill />
-      </div>
+      <ImageWrapper src={route.image?.value} alt="point image" className="rounded-b-xl h-[317px] w-full" />
+
       <div className="px-5 pt-7">
         <RouteInfoBar
           bikeDuration={route.durationOnBike.value}
