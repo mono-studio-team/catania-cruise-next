@@ -1,8 +1,9 @@
 'use client'
 
 import React, { createContext, useContext, useEffect } from 'react'
-import { useRouter } from 'next/navigation'
+import { usePathname, useRouter } from 'next/navigation'
 import { getVerifyToken } from '@/api/auth'
+import { useLocale } from 'next-intl'
 
 interface AuthContextType {
   setToken: (token: string) => void
@@ -20,6 +21,8 @@ export const useAuth = () => {
 
 export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const router = useRouter()
+  const pathname = usePathname()
+  const locale = useLocale()
 
   const setToken = (token: string) => {
     localStorage.setItem('authToken', token)
@@ -43,7 +46,10 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
         router.push('/redirect')
       } else {
         console.warn('token valido, home')
-        router.push('/')
+        console.log(pathname)
+        if (pathname === `/${locale}/login` || pathname === `/${locale}/redirect`) {
+          router.push('/')
+        }
       }
     }
 
