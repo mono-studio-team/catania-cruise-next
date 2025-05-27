@@ -21,7 +21,7 @@ export default function HomeHeader({ title }: HomeHeaderProps) {
       <h1 className="font-semibold text-2xl">{title}</h1>
       <div className="flex gap-4 items-center">
         <div className="w-[26px] h-[26px] flex items-center">
-          <FlagIcon onClick={toggleDrawer} className="cursor-pointer border border-black" />
+          <FlagIcon width={26} height={17.5} onClick={toggleDrawer} className="cursor-pointer border border-black" />
         </div>
         <Link href="/info">
           <InfoIcon />
