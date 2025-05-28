@@ -9,6 +9,28 @@ import { notFound } from 'next/navigation'
 import { readFile } from 'fs/promises'
 import { join } from 'path'
 import { AuthProvider } from '@/contexts/AuthContext'
+import { Metadata } from 'next'
+
+export const metadata: Metadata = {
+  title: {
+    default: 'Catania Cruise',
+    template: '%s | Catania Cruise',
+  },
+  icons: {
+    icon: '/favicon.svg',
+    apple: '/apple-touch-icon.png',
+  },
+  openGraph: {
+    title: 'Catania Cruise',
+    images: [
+      {
+        url: '/og.png',
+        width: 1200,
+        height: 630,
+      },
+    ],
+  },
+}
 
 type RootLayoutProps = {
   children: ReactNode
@@ -28,10 +50,12 @@ export default async function RootLayout({ children, params }: RootLayoutProps) 
     <html lang="en">
       <body className={`${sfPro.className}`}>
         <NextIntlClientProvider locale={locale} messages={messages}>
-          <DrawerProvider>
-            <main>{children}</main>
-            <LangDrawer />
-          </DrawerProvider>
+          <AuthProvider>
+            <DrawerProvider>
+              <main>{children}</main>
+              <LangDrawer />
+            </DrawerProvider>
+          </AuthProvider>
         </NextIntlClientProvider>
       </body>
     </html>
