@@ -1,4 +1,4 @@
-import Background from '@/assets/login-bg.jpg'
+import Background from '@/assets/info-bg.png'
 import Logo from '@/assets/logo.svg'
 import ImageWrapper from '../molecules/ImageWrapper'
 

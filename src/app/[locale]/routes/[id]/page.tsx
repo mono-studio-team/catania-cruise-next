@@ -2,9 +2,22 @@ import { getEntityById } from '@/api/entities'
 import Button from '@/components/atoms/Button'
 import DetailsHeader from '@/components/organisms/DetailsHeader'
 import RoutePointsSection from '@/components/organisms/RoutePointsSection'
+import { getLocalizedProperty } from '@/lib/getLocalizedProperty'
 import { Route, RoutePoint } from '@/types/api'
+import { Metadata } from 'next'
 import { getTranslations } from 'next-intl/server'
 import { notFound } from 'next/navigation'
+
+export async function generateMetadata({ params }: { params: { id: string; locale: string } }): Promise<Metadata> {
+  const decodedId = decodeURIComponent(params.id)
+  const data = await getEntityById(decodedId)
+
+  const routeName = getLocalizedProperty(data, 'name', params.locale)
+
+  return {
+    title: routeName,
+  }
+}
 
 type RouteDetailsProps = {
   params: Promise<{ id: string }>

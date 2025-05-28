@@ -1,12 +1,13 @@
 'use client'
 
-import React, { createContext, useContext, useEffect } from 'react'
+import React, { createContext, useContext, useEffect, useState } from 'react'
 import { usePathname, useRouter } from 'next/navigation'
 import { getVerifyToken } from '@/api/auth'
 import { useLocale } from 'next-intl'
 
 interface AuthContextType {
   setToken: (token: string) => void
+  isAuthReady: boolean
 }
 
 const AuthContext = createContext<AuthContextType | undefined>(undefined)
@@ -24,6 +25,8 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
   const pathname = usePathname()
   const locale = useLocale()
 
+  const [isAuthReady, setIsAuthReady] = useState(false)
+
   const setToken = (token: string) => {
     localStorage.setItem('authToken', token)
   }
@@ -33,28 +36,29 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
       const token = localStorage.getItem('authToken')
 
       if (!token) {
-        console.warn('nessun token, login')
-        router.push('/login')
+        router.push(`/login`)
+        console.log('NO TOKEN')
+        setIsAuthReady(true)
         return
       }
 
       const isValid = await getVerifyToken(token)
 
       if (!isValid) {
-        console.warn('token non valido, redirect') //TODO - remove logs
         localStorage.removeItem('authToken')
-        router.push('/redirect')
+        console.log('TOKEN IS EXPIRED')
+        router.push(`/redirect`)
       } else {
-        console.warn('token valido, home')
-        console.log(pathname)
         if (pathname === `/${locale}/login` || pathname === `/${locale}/redirect`) {
-          router.push('/')
+          console.log('TOKEN IS VALID')
+          router.push(`/`)
         }
       }
+      setIsAuthReady(true)
     }
 
     checkToken()
   }, [])
 
-  return <AuthContext.Provider value={{ setToken }}>{children}</AuthContext.Provider>
+  return <AuthContext.Provider value={{ setToken, isAuthReady }}>{children}</AuthContext.Provider>
 }

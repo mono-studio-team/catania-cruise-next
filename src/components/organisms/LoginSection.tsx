@@ -11,7 +11,7 @@ export default function LoginSection() {
       <HomeHeader title={t('headerTitle')} />
       <div className="flex h-full flex-col items-center justify-center">
         <div className="relative w-full">
-          <Logo className="absolute -top-[110px] left-0 right-0 mx-auto" />
+          <Logo className="absolute -top-[109.5px] left-0 right-0 mx-auto" />
           <LoginFormCard />
         </div>
       </div>

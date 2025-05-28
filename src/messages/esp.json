@@ -5,7 +5,7 @@
       "labelOtp": "Introduce el código",
       "btnTel": "Enviar",
       "btnOtp": "Verificar",
-      "errOtp": "El código que ingresaste es incorrecto",
+      "errOtp": "El código que ingresaste es incorrecto o ha expirado",
       "sentOtpMessage": "Introduce el código que enviamos al número +39333 33221123",
       "notRetrievedMessage": "Si no lo has recibido,",
       "btnSendNewOtp": "solicita uno nuevo"

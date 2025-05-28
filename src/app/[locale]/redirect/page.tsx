@@ -1,8 +1,11 @@
-'use client'
-
 import Image from 'next/image'
 import Background from '@/assets/login-bg.jpg'
 import LogoCard from '@/components/molecules/LogoCard'
+import { Metadata } from 'next'
+
+export const metadata: Metadata = {
+  title: 'Redirect',
+}
 
 export default function Redirect() {
   return (

@@ -36,7 +36,7 @@ export default function ImageWrapper({
         {...props}
       />
       {showGradient && loaded && (
-        <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-black/5 to-transparent z-10" />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/30 from-10% to-transparent to-50% z-10" />
       )}
     </div>
   )

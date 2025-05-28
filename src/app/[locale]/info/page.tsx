@@ -1,6 +1,11 @@
 import InfoHeader from '@/components/organisms/InfoHeader'
 import InfoSection from '@/components/molecules/InfoSection'
 import { useTranslations } from 'next-intl'
+import { Metadata } from 'next'
+
+export const metadata: Metadata = {
+  title: 'Info',
+}
 
 export default function Info() {
   const t = useTranslations('infoPage')

@@ -15,7 +15,6 @@ export default function Home() {
     const fetchRoutes = async () => {
       try {
         const data = await getAllRoutes()
-        // console.log('Fetched routes:', data)
         setRoutes(data)
       } catch (err) {
         console.error('Error fetching routes:', err)

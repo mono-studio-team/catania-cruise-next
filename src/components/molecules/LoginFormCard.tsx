@@ -24,7 +24,7 @@ export default function LoginFormCard() {
   const [isOtpSubmitted, setIsOtpSubmitted] = useState(false)
   const [phoneNumber, setPhoneNumber] = useState<string>()
   const [verificationError, setVerificationError] = useState(false)
-  // const { setToken } = useAuth()
+  const { setToken } = useAuth()
 
   const {
     handleSubmit,
@@ -49,13 +49,14 @@ export default function LoginFormCard() {
       console.log('FORM DATA', data)
       if (data.phoneNumber && data.code)
         try {
-          /*  const response = await postVerifyOtp(data.code!, data.phoneNumber!)
+          const response = await postVerifyOtp(data.code, data.phoneNumber)
           console.log('RES', response)
-          const token = response.token
-          if (!token) throw new Error('Invalid token')
+
+          const token = response.data.token
 
           console.log('TOKEN', token)
-          setToken(token)*/
+          setToken(token)
+
           router.push('/')
           reset()
         } catch (err) {
