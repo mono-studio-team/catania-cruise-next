@@ -37,7 +37,6 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
 
       if (!token) {
         router.push(`/login`)
-        console.log('NO TOKEN')
         setIsAuthReady(true)
         return
       }
@@ -46,11 +45,9 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
 
       if (!isValid) {
         localStorage.removeItem('authToken')
-        console.log('TOKEN IS EXPIRED')
         router.push(`/redirect`)
       } else {
         if (pathname === `/${locale}/login` || pathname === `/${locale}/redirect`) {
-          console.log('TOKEN IS VALID')
           router.push(`/`)
         }
       }

@@ -46,16 +46,10 @@ export default function LoginFormCard() {
       setIsOtpSubmitted(true)
       setVerificationError(false)
 
-      console.log('FORM DATA', data)
       if (data.phoneNumber && data.code)
         try {
           const response = await postVerifyOtp(data.code, data.phoneNumber)
-          console.log('RES', response)
-
-          const token = response.data.token
-
-          console.log('TOKEN', token)
-          setToken(token)
+          setToken(response.data.token)
 
           router.push('/')
           reset()
